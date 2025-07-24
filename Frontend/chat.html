@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heartsync - Chat</title>
+    <link rel="stylesheet" href="chat.css" />
+  </head>
+  <body>
+    <div class="floating-hearts"></div>
+
+    <div class="container">
+      <div class="chat-container">
+        <div class="chat-header">
+          <div class="chat-user-info">
+            <div class="user-avatar">💕</div>
+            <div>
+              <h3 id="chatUserName">Loading...</h3>
+              <p id="chatUserRelation">Your loved one</p>
+            </div>
+          </div>
+          <button class="back-btn" onclick="goBack()">← Back to Login</button>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+          <div class="message ai">
+            <div class="message-bubble">
+              Hello! I'm so happy to talk with you again. How are you doing
+              today? 💕
+            </div>
+          </div>
+        </div>
+
+        <div class="typing-indicator" id="typingIndicator">
+          <span class="typing-dots">💕 is typing...</span>
+        </div>
+
+        <div class="chat-input-container">
+          <div class="chat-input-wrapper">
+            <input
+              type="text"
+              class="chat-input"
+              id="messageInput"
+              placeholder="Type your message..."
+            />
+            <button class="emoji-toggle" onclick="toggleEmojiKeyboard()">
+              😊
+            </button>
+            <button class="send-btn" onclick="sendMessage()">➤</button>
+          </div>
+
+          <div class="emoji-keyboard" id="emojiKeyboard">
+            <button class="emoji-btn" onclick="addEmoji('😀')">😀</button>
+            <button class="emoji-btn" onclick="addEmoji('😂')">😂</button>
+            <button class="emoji-btn" onclick="addEmoji('😊')">😊</button>
+            <button class="emoji-btn" onclick="addEmoji('😍')">😍</button>
+            <button class="emoji-btn" onclick="addEmoji('😘')">😘</button>
+            <button class="emoji-btn" onclick="addEmoji('😎')">😎</button>
+            <button class="emoji-btn" onclick="addEmoji('😢')">😢</button>
+            <button class="emoji-btn" onclick="addEmoji('😭')">😭</button>
+            <button class="emoji-btn" onclick="addEmoji('😡')">😡</button>
+            <button class="emoji-btn" onclick="addEmoji('😴')">😴</button>
+            <button class="emoji-btn" onclick="addEmoji('🤔')">🤔</button>
+            <button class="emoji-btn" onclick="addEmoji('😇')">😇</button>
+            <button class="emoji-btn" onclick="addEmoji('🥰')">🥰</button>
+            <button class="emoji-btn" onclick="addEmoji('🤗')">🤗</button>
+            <button class="emoji-btn" onclick="addEmoji('🥲')">🥲</button>
+            <button class="emoji-btn" onclick="addEmoji('😅')">😅</button>
+            <button class="emoji-btn" onclick="addEmoji('😋')">😋</button>
+            <button class="emoji-btn" onclick="addEmoji('🤪')">🤪</button>
+            <button class="emoji-btn" onclick="addEmoji('😜')">😜</button>
+            <button class="emoji-btn" onclick="addEmoji('😬')">😬</button>
+            <button class="emoji-btn" onclick="addEmoji('🥵')">🥵</button>
+            <button class="emoji-btn" onclick="addEmoji('🥶')">🥶</button>
+            <button class="emoji-btn" onclick="addEmoji('😱')">😱</button>
+            <button class="emoji-btn" onclick="addEmoji('😳')">😳</button>
+            <button class="emoji-btn" onclick="addEmoji('🤯')">🤯</button>
+            <button class="emoji-btn" onclick="addEmoji('😤')">😤</button>
+            <button class="emoji-btn" onclick="addEmoji('😈')">😈</button>
+            <button class="emoji-btn" onclick="addEmoji('👻')">👻</button>
+            <button class="emoji-btn" onclick="addEmoji('💀')">💀</button>
+            <button class="emoji-btn" onclick="addEmoji('👽')">👽</button>
+            <button class="emoji-btn" onclick="addEmoji('🎃')">🎃</button>
+            <button class="emoji-btn" onclick="addEmoji('🤖')">🤖</button>
+            <button class="emoji-btn" onclick="addEmoji('🐶')">🐶</button>
+            <button class="emoji-btn" onclick="addEmoji('🐱')">🐱</button>
+            <button class="emoji-btn" onclick="addEmoji('🐭')">🐭</button>
+            <button class="emoji-btn" onclick="addEmoji('🐹')">🐹</button>
+            <button class="emoji-btn" onclick="addEmoji('🦊')">🦊</button>
+            <button class="emoji-btn" onclick="addEmoji('🐻')">🐻</button>
+            <button class="emoji-btn" onclick="addEmoji('🐼')">🐼</button>
+            <button class="emoji-btn" onclick="addEmoji('🌸')">🌸</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="chat.js"></script>
+</html>
