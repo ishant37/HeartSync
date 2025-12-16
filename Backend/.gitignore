@@ -142,3 +142,5 @@ dist
 .svelte-kit
 
 # End of https://www.toptal.com/developers/gitignore/api/node
+# Ignore chat & user data
+Backend/Backend/data/
