@@ -29,9 +29,25 @@ document.getElementById("loginForm").addEventListener("submit", async function (
   formData.append("personality", document.getElementById("personality").value);
   formData.append("interests", document.getElementById("interests").value);
 
+  // Get and validate API key
+  const geminiApiKey = document.getElementById("geminiApiKey").value.trim();
+  if (!geminiApiKey) {
+    alert("❌ Please enter your Gemini API key.");
+    return;
+  }
+
+  // Store API key securely in sessionStorage
+  sessionStorage.setItem("gemini_api_key", geminiApiKey);
+
   try {
-    const response = await fetch("http://localhost:5000/upload-chat", {
+    // Get backend URL from environment or default to localhost
+    const backendUrl = window.BACKEND_URL || "http://localhost:5000";
+    
+    const response = await fetch(`${backendUrl}/upload-chat`, {
       method: "POST",
+      headers: {
+        "x-gemini-api-key": geminiApiKey
+      },
       body: formData,
     });
 

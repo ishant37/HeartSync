@@ -20,6 +20,14 @@
 
             <form id="loginForm">
                 <div class="form-group">
+                    <label for="geminiApiKey">Your Gemini API Key <small style="color: #888;">(Secured locally - never stored on server)</small></label>
+                    <input type="password" id="geminiApiKey" required placeholder="Enter your Gemini API key">
+                    <small style="color: #666; display: block; margin-top: 5px;">
+                        Get your free API key from <a href="https://makersuite.google.com/app/apikey" target="_blank" style="color: #ff6b9d;">Google AI Studio</a>
+                    </small>
+                </div>
+                
+                <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" required>
                 </div>
@@ -68,6 +76,7 @@
         </div>
     </div>
 
+    <script src="config.js"></script>
     <script src="login.js"></script>
 </body>
 

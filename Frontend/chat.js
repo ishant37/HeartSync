@@ -19,8 +19,10 @@ let emojiKeyboardVisible = false;
 // ✅ Combined window.onload
 window.onload = function () {
   const storedData = localStorage.getItem("heartsyncUserData");
+  const apiKey = sessionStorage.getItem("gemini_api_key");
 
-  if (!storedData) {
+  if (!storedData || !apiKey) {
+    alert("❌ Session expired. Please login again.");
     window.location.href = "login.html";
     return;
   }
@@ -90,9 +92,15 @@ function addMessage(text, sender) {
 
 // Get reply from backend
 async function getBotReply(message) {
-  const res = await fetch("http://localhost:5000/chat", {
+  const apiKey = sessionStorage.getItem("gemini_api_key");
+  const backendUrl = window.BACKEND_URL || "http://localhost:5000";
+  
+  const res = await fetch(`${backendUrl}/chat`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { 
+      "Content-Type": "application/json",
+      "x-gemini-api-key": apiKey
+    },
     body: JSON.stringify({ message: message, email: userData.email }),
   });
 
@@ -133,6 +141,7 @@ function addEmoji(emoji) {
 // Back button clears localStorage
 function goBack() {
   localStorage.removeItem("heartsyncUserData");
+  sessionStorage.removeItem("gemini_api_key");
   window.location.href = "login.html";
 }
 

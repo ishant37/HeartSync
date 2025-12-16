@@ -5,9 +5,16 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-
-export async function generateGeminiReply(userInput, email) {
+export async function generateGeminiReply(userInput, email, apiKey) {
+  // Use provided API key or fallback to environment variable (for testing)
+  const geminiKey = apiKey || process.env.GEMINI_API_KEY;
+  
+  if (!geminiKey) {
+    console.error('❌ No Gemini API key provided');
+    return "API key is required. Please enter your Gemini API key.";
+  }
+  
+  const genAI = new GoogleGenerativeAI(geminiKey);
   // 1. Create a safe filename
   const safeEmail = email.replace(/[^a-zA-Z0-9]/g, '_');
 

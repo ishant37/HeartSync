@@ -30,6 +30,15 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(path.resolve(), 'Frontend')));
 
+// Middleware to extract API key from headers
+app.use((req, res, next) => {
+  const userApiKey = req.headers['x-gemini-api-key'];
+  if (userApiKey) {
+    req.geminiApiKey = userApiKey;
+  }
+  next();
+});
+
 // Upload Setup
 const uploadDir = path.join(path.resolve(), 'Backend', 'data');
 if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true });
